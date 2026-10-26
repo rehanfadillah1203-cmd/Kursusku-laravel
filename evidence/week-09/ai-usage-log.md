@@ -1,0 +1,10 @@
+# AI Usage Log - Pertemuan 9 (Milestone Week-09)
+
+Dokumentasi konsultasi bersama AI Assistant.
+
+| Waktu | Masalah / Tujuan | Prompt Singkat | Apa yang Diterima / Ditolak |
+| --- | --- | --- | --- |
+| 17:46 WIB | Perancangan Identitas Visual Kuning Pisang & Prinsip Anti-AI Slop | "TEMA UTAMA: KUNING PISANG, jangan membuat tampilan AI generik, terapkan palet #FFE135, #3B2A14, #FFF8DC, dll." | **Diterima:** Penerapan palet hangat kuning pisang dengan teks cokelat tua agar kontras tetap terbaca, serta penyusunan hero 2 kolom yang bersih.<br>**Ditolak:** Efek neon, glassmorphism, gradasi ungu, animasi berlebihan, floating shapes, dan dekorasi (misalnya ikon pisang berlebihan) yang mengaburkan kesan proyek mahasiswa. |
+| 17:49 WIB | Pembentukan Master Layout dan Reusable Navbar | "Gunakan master layout app.blade.php dan partials/navbar.blade.php dengan Bootstrap collapse" | **Diterima:** Pemisahan struktur layout menggunakan `@extends`, `@section`, `@yield`, dan `@include('partials.navbar')`.<br>**Ditolak:** Menuliskan navbar dan footer secara duplikatif di setiap file view. |
+| 17:58 WIB | Memperbaiki path gambar hero yang tidak tampil | "File public\hero-kursus.jpg tidak ditemukan, bagaimana mencari lokasi file yang benar?" | **Diterima:** Pencarian file dengan `dir /s /b hero*.*` dan penyesuaian path menjadi `asset('images/hero-kursus.jpg')`.<br>**Ditolak:** Memindahkan atau membuat ulang gambar tanpa memastikan lokasi aslinya terlebih dahulu. |
+| 18:06 WIB | Pembimbingan Pengambilan Evidence Week-09 | "Bimbing saya mengambil evidence satu per satu, jangan membuat screenshot palsu" | **Diterima:** Panduan bertahap untuk `01-home.png`, `02-form.png`, `03-availability.png`, dan `04-network-json.png`, termasuk cara memakai mode responsif DevTools, tab Network (Fetch/XHR), dan Snipping Tool (`Win+Shift+S`).<br>**Ditolak:** Pembuatan screenshot palsu atau simulasi tangkapan layar oleh AI. |

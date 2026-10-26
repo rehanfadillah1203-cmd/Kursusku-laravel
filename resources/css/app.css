@@ -1,0 +1,167 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+:root {
+    --pp-yellow: #f7d046;
+    --pp-yellow-dark: #e0b92a;
+    --pp-yellow-soft: #fff3c4;
+    --pp-brown: #3b2f0b;
+    --pp-brown-soft: #6b5a24;
+    --pp-cream: #fffbea;
+}
+
+body {
+    background: var(--pp-cream);
+    color: var(--pp-brown);
+    font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+.navbar {
+    background-color: var(--pp-brown) !important;
+    border-bottom: 4px solid var(--pp-yellow);
+}
+
+.navbar-brand {
+    color: var(--pp-yellow) !important;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+.navbar-brand span {
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.navbar .nav-link {
+    color: var(--pp-yellow-soft);
+    font-weight: 500;
+}
+
+.navbar .nav-link:hover {
+    color: var(--pp-yellow);
+}
+
+h1, h2, h3 {
+    color: var(--pp-brown);
+}
+
+.text-secondary,
+.lead {
+    color: var(--pp-brown-soft) !important;
+}
+
+.btn-success {
+    --bs-btn-bg: var(--pp-yellow);
+    --bs-btn-border-color: var(--pp-yellow-dark);
+    --bs-btn-color: var(--pp-brown);
+    --bs-btn-hover-bg: var(--pp-yellow-dark);
+    --bs-btn-hover-border-color: var(--pp-yellow-dark);
+    --bs-btn-hover-color: var(--pp-brown);
+    --bs-btn-active-bg: var(--pp-yellow-dark);
+    --bs-btn-active-border-color: var(--pp-yellow-dark);
+    --bs-btn-active-color: var(--pp-brown);
+    font-weight: 700;
+    border-radius: 10px;
+    padding: 0.55rem 1.4rem;
+}
+
+.text-bg-success {
+    background-color: var(--pp-yellow) !important;
+    color: var(--pp-brown) !important;
+    font-weight: 600;
+}
+
+.card {
+    border: 1px solid var(--pp-yellow);
+    border-radius: 16px;
+    background: #ffffff;
+}
+
+.form-label {
+    font-weight: 600;
+    color: var(--pp-brown);
+}
+
+.form-control,
+.form-select {
+    border: 1px solid #e6d58a;
+    border-radius: 10px;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--pp-yellow-dark);
+    box-shadow: 0 0 0 0.25rem rgba(247, 208, 70, 0.35);
+}
+
+.alert {
+    border-radius: 12px;
+}
+
+.alert-secondary {
+    background: var(--pp-yellow-soft);
+    border-color: var(--pp-yellow);
+    color: var(--pp-brown);
+}
+
+.alert-success {
+    background: #e8f5d0;
+    border-color: #b7d97a;
+    color: #2f4a0a;
+}
+
+section.py-5 {
+    background: linear-gradient(135deg, var(--pp-yellow-soft), #ffffff);
+    border: 1px solid var(--pp-yellow);
+    border-radius: 20px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.hero-title {
+    color: var(--pp-brown);
+    font-weight: 800;
+}
+
+.hero-title em {
+    font-style: normal;
+    background: var(--pp-yellow);
+    padding: 0 0.35rem;
+    border-radius: 6px;
+}
+
+.form-card-header {
+    background: var(--pp-yellow);
+    color: var(--pp-brown);
+    border-bottom: 2px solid var(--pp-yellow-dark);
+    border-radius: 14px 14px 0 0 !important;
+    padding: 1rem 1.5rem;
+}
+
+.course-card {
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.course-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(59, 47, 11, 0.15) !important;
+}
+
+.seat-badge {
+    background: var(--pp-yellow-soft);
+    color: var(--pp-brown);
+    border: 1px solid var(--pp-yellow);
+    border-radius: 999px;
+    padding: 0.25rem 0.75rem;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.site-footer {
+    margin-top: 3rem;
+    padding: 1.25rem 0;
+    background: var(--pp-brown);
+    color: var(--pp-yellow-soft);
+    border-top: 4px solid var(--pp-yellow);
+    text-align: center;
+    font-size: 14px;
+}

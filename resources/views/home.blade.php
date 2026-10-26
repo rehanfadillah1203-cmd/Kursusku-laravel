@@ -1,46 +1,36 @@
-<!doctype html>
-<html lang="id">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ $siteName }}</title>
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-</head>
-<body>
+@extends('layouts.app')
 
-<header class="navbar">
-    <div class="container">
-        <strong>{{ $siteName }}</strong>
-        <nav>
-            <a href="{{ route('home') }}" style="color:white">Beranda</a>
-        </nav>
+@section('title', 'Beranda - KursusKu Pisang Pride')
+
+@section('content')
+<section class="py-5">
+    <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+            <p class="hero-eyebrow">Belajar web lebih terarah</p>
+
+            <h1 class="display-5 hero-title">
+                Bangun skill web bersama <em>KursusKu</em>
+            </h1>
+
+            <p class="lead">
+                Pelajari langkah demi langkah dari konsep dasar HTML, CSS,
+                logika pemrograman PHP, hingga arsitektur modern menggunakan
+                Laravel framework.
+            </p>
+
+            <div class="d-flex flex-wrap gap-2">
+                <a href="{{ route('enrollments.create') }}" class="btn btn-success">
+                    Daftar Kursus
+                </a>
+                <a href="{{ route('catalog.index') }}" class="btn btn-outline-pp">
+                    Lihat Kursus
+                </a>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <img src="{{ asset('images/hero-kursus.jpg') }}" alt="Hero Kursus">
+        </div>
     </div>
-</header>
-
-<main class="container">
-    <section class="hero">
-        <div>
-            <p>Belajar Web Secara Bertahap</p>
-            <h1>Bangun kemampuan web dari PHP sampai Laravel.</h1>
-            <p>KursusKu menyediakan latihan terarah untuk pemula.</p>
-        </div>
-        <img src="{{ asset('images/hero-kursus.jpg') }}"
-             alt="Ilustrasi kelas KursusKu">
-    </section>
-
-    <section>
-       <h2>Program Belajar Unggulan</h2>
-        <div class="course-grid">
-            @foreach ($featured as $course)
-                <article class="card">
-                    <small>{{ $course['code'] }}</small>
-                    <h3>{{ $course['name'] }}</h3>
-                    <p>{{ $course['description'] }}</p>
-                </article>
-            @endforeach
-        </div>
-    </section>
-</main>
-
-</body>
-</html>
+</section>
+@endsection
