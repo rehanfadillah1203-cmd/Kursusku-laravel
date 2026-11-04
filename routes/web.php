@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\CourseController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
 
 Route::get('/', function () {
     return view('home');
@@ -62,3 +64,6 @@ Route::get('/courses/{course}/availability', function (int $course) {
 
     return response()->json($availability[$course]);
 })->name('courses.availability');
+
+// CRUD kursus dari database (index, create, store)
+Route::resource('courses', CourseController::class)->only(['index', 'create', 'store']);
