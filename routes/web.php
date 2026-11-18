@@ -1,58 +1,23 @@
 <?php
 
 use App\Http\Controllers\CourseController;
-use Illuminate\Http\Request;
+use App\Http\Controllers\EnrollmentController;
 use Illuminate\Support\Facades\Route;
-
 
 Route::get('/', function () {
     return view('home');
 })->name('home');
 
-Route::get('/kursus', function () {
-    $courses = [
-        1 => [
-            'name' => 'Web Dasar',
-            'description' => 'HTML, CSS, dan dasar tampilan web untuk pemula.',
-            'remaining' => 12,
-        ],
-        2 => [
-            'name' => 'PHP Dasar',
-            'description' => 'Logika PHP, form, dan pengolahan data sederhana.',
-            'remaining' => 8,
-        ],
-        3 => [
-            'name' => 'Laravel Dasar',
-            'description' => 'Route, Blade, dan pondasi aplikasi Laravel.',
-            'remaining' => 4,
-        ],
-    ];
+// Route lama dialihkan supaya link di navbar atau halaman lain tidak error
+Route::redirect('/kursus', '/courses')->name('catalog.index');
+Route::redirect('/pendaftaran', '/enrollments/create');
 
-    return view('enrollments.index', compact('courses'));
-})->name('catalog.index');
+// Enrollment (relasi Participant - Course)
+Route::get('/enrollments', [EnrollmentController::class, 'index'])->name('enrollments.index');
+Route::get('/enrollments/create', [EnrollmentController::class, 'create'])->name('enrollments.create');
+Route::post('/enrollments', [EnrollmentController::class, 'store'])->name('enrollments.store');
 
-Route::get('/pendaftaran', function () {
-    $courses = [
-        1 => ['name' => 'Web Dasar'],
-        2 => ['name' => 'PHP Dasar'],
-        3 => ['name' => 'Laravel Dasar'],
-    ];
-
-    return view('enrollments.create', compact('courses'));
-})->name('enrollments.create');
-
-Route::post('/pendaftaran/preview', function (Request $request) {
-    $data = $request->validate([
-        'name' => ['required', 'string', 'min:3', 'max:100'],
-        'email' => ['required', 'email'],
-        'course_id' => ['required', 'integer'],
-    ]);
-
-    return back()
-        ->with('success', 'Form lolos validasi. Database akan ditambahkan pada pertemuan berikutnya.')
-        ->withInput();
-})->name('enrollments.preview');
-
+// Cek sisa kuota kursus (JSON)
 Route::get('/courses/{course}/availability', function (int $course) {
     $availability = [
         1 => ['course' => 'Web Dasar', 'remaining' => 12],
@@ -65,5 +30,5 @@ Route::get('/courses/{course}/availability', function (int $course) {
     return response()->json($availability[$course]);
 })->name('courses.availability');
 
-// CRUD kursus dari database (lengkap: index, create, store, show, edit, update, destroy)
+// CRUD kursus dari database
 Route::resource('courses', CourseController::class);
