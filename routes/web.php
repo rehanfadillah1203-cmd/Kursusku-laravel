@@ -65,5 +65,5 @@ Route::get('/courses/{course}/availability', function (int $course) {
     return response()->json($availability[$course]);
 })->name('courses.availability');
 
-// CRUD kursus dari database (index, create, store)
-Route::resource('courses', CourseController::class)->only(['index', 'create', 'store']);
+// CRUD kursus dari database (lengkap: index, create, store, show, edit, update, destroy)
+Route::resource('courses', CourseController::class);

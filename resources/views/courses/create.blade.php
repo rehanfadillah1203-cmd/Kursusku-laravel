@@ -6,7 +6,7 @@
 <div class="container py-4" style="max-width: 760px">
     <h1 class="h3 mb-3">Tambah Kursus</h1>
 
-    <form method="POST" action="{{ route('courses.store') }}" class="card card-body">
+    <form method="POST" action="{{ route('courses.store') }}" novalidate class="...">
         @csrf
 
         <div class="mb-3">
