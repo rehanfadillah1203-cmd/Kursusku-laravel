@@ -20,6 +20,26 @@
         </div>
     @endif
 
+    {{-- Form search + filter (GET, fallback tanpa JavaScript) --}}
+    <form method="GET" action="{{ route('courses.index') }}" class="row g-2 mb-3">
+        <div class="col-md-6">
+            <input type="search" id="live-search" name="q" value="{{ $search }}"
+                   class="form-control" placeholder="Cari kode atau nama kursus">
+        </div>
+        <div class="col-md-3">
+            <select name="status" id="status-filter" class="form-select">
+                <option value="">Semua status</option>
+                <option value="open" @selected($status === 'open')>Open</option>
+                <option value="closed" @selected($status === 'closed')>Closed</option>
+                <option value="draft" @selected($status === 'draft')>Draft</option>
+            </select>
+        </div>
+        <div class="col-md-3 d-flex gap-2">
+            <button type="submit" class="btn btn-success">Cari</button>
+            <a href="{{ route('courses.index') }}" class="btn btn-outline-secondary">Reset</a>
+        </div>
+    </form>
+
     <div class="card">
         <div class="card-body p-0">
             <div class="table-responsive">
@@ -65,7 +85,7 @@
                         @empty
                             <tr>
                                 <td colspan="7" class="text-center py-4 text-muted">
-                                    Belum ada data kursus.
+                                    Tidak ada kursus yang sesuai pencarian/filter.
                                 </td>
                             </tr>
                         @endforelse
@@ -73,6 +93,15 @@
                 </table>
             </div>
         </div>
+    </div>
+
+    {{-- Pagination: q dan status dipertahankan oleh withQueryString() di controller --}}
+    <div class="mt-3 d-flex justify-content-between align-items-center flex-wrap gap-2">
+        <small class="text-muted">
+            Menampilkan {{ $courses->firstItem() ?? 0 }}-{{ $courses->lastItem() ?? 0 }}
+            dari {{ $courses->total() }} kursus
+        </small>
+        {{ $courses->links() }}
     </div>
 </div>
 @endsection
